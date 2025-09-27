@@ -1,5 +1,5 @@
 env:
-  TWRP_MANIFEST: https://github.com/SavedByLight/platform_manifest_twrp_aosp.git
+  TWRP_MANIFEST: https://github.com/namakunegro/platform_manifest_twrp_aosp.git
   TWRP_MANIFEST_BRANCH: twrp-14.1
   DT_REPO: https://github.com/namakunegro/recovery_xiaomi_gold
   DT_BRANCH: twrp-14.1_a15
