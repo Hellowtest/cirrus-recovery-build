@@ -15,37 +15,34 @@ mkdir -p workspace && cd workspace
 log "Installing build dependencies..."
 curl -LSs https://raw.githubusercontent.com/akhilnarang/scripts/refs/heads/master/setup/android_build_env.sh | bash -
 
-# Sync Fox manifest
-log "Syncing Fox Manifest..."
+# Sync TWRP manifest
+log "Syncing TWRP Manifest..."
 git config --global user.name "bintang774"
 git config --global user.email "108184157+bintang774@users.noreply.github.com"
-git clone --depth=1 "$FOX_SYNC" sync
-cd sync
-./orangefox_sync.sh --branch "$FOX_BRANCH" --path "$(realpath ../fox_${FOX_BRANCH})"
-cd ..
+repo init --depth=1 -u "$TWRP_MANIFEST" -b "$TWRP_MANIFEST_BRANCH"
+repo sync
 
 # Clone Device tree
-cd "fox_${FOX_BRANCH}"
 log "Cloning device tree..."
 git clone --depth=1 -q "$DT_REPO" -b "$DT_BRANCH" "$DT_PATH"
 
-# Build Fox
-log "Building Fox..."
-source build/envsetup.sh
+# Build TWRP
+log "Building TWRP..."
 export ALLOW_MISSING_DEPENDENCIES=true
+. build/envsetup.sh
 lunch "${DEVICE_MAKEFILE}-eng"
-mka adbd "${BUILD_TARGET}image" -j"$(nproc --all)"
+mka "${BUILD_TARGET}image" -j"$(nproc --all)"
 
 # Files
 OUT_PATH="out/target/product/$DEVICE_NAME"
-OUTPUT_FILES=$(realpath "$OUT_PATH"/OrangeFox*.img)
+OUTPUT_FILES=$(realpath "$OUT_PATH"/*.img)
 
 # Create GitHub release
 log "Creating GitHub release..."
 export GITHUB_TOKEN="$GH_TOKEN"
 DATE=$(TZ="$TIMEZONE" date +"%Y%m%d-%H%M")
-RELEASE_TAG="Fox-${DEVICE_NAME}-${DATE}"
-RELEASE_NAME="OrangeFox ${DEVICE_NAME} ${DATE}"
+RELEASE_TAG="twrp-${DEVICE_NAME}-${DATE}"
+RELEASE_NAME="TWRP ${DEVICE_NAME} ${DATE}"
 
 # Upload output file to github release
 URL=$(
