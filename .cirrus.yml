@@ -6,7 +6,7 @@ env:
   DT_PATH: device/tecno/LH8n
   DEVICE_MAKEFILE: twrp_LH8n-ap2a
   DEVICE_NAME: LH8n
-  BUILD_TARGET: vendorboot
+  BUILD_TARGET: boot
   TIMEZONE: Asia/Makassar
   RELEASE_REPO: naden01/cirrus-recovery-releases
   GH_TOKEN: ENCRYPTED[a58ad11dc069acd88d0c69d13cef2a6d0da0397c2af82ffc5b49ae5fcd1f46a71e54bc851390437e15031a77a63d770d]
