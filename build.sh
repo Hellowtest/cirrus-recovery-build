@@ -17,8 +17,8 @@ curl -LSs https://raw.githubusercontent.com/akhilnarang/scripts/refs/heads/maste
 
 # Sync TWRP manifest
 log "Syncing TWRP Manifest..."
-git config --global user.name "bintang774"
-git config --global user.email "108184157+bintang774@users.noreply.github.com"
+git config --global user.name "nazephyrus"
+git config --global user.email "108184157+nazephyrus@users.noreply.github.com"
 repo init --depth=1 -u "$TWRP_MANIFEST" -b "$TWRP_MANIFEST_BRANCH"
 repo sync
 
