@@ -1,11 +1,11 @@
 env:
-  TWRP_MANIFEST: https://github.com/namakunegro/platform_manifest_twrp_aosp.git
+  TWRP_MANIFEST: https://github.com/linastorvaldz/platform_manifest_twrp_aosp.git
   TWRP_MANIFEST_BRANCH: twrp-14.1
-  DT_REPO: https://github.com/naden01/tecno_LH8n-TWRP
-  DT_BRANCH: 14
-  DT_PATH: device/tecno/LH8n
-  DEVICE_MAKEFILE: twrp_LH8n-ap2a
-  DEVICE_NAME: LH8n
+  DT_REPO: https://github.com/naden01/android_device_xiaomi_rodin-twrp.git
+  DT_BRANCH: main
+  DT_PATH: device/xiaomi/rodin
+  DEVICE_MAKEFILE: twrp_rodin-ap2a
+  DEVICE_NAME: rodin
   BUILD_TARGET: vendorboot
   TIMEZONE: Asia/Makassar
   RELEASE_REPO: naden01/cirrus-recovery-releases
