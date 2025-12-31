@@ -38,7 +38,7 @@ log "Building TWRP..."
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
 lunch twrp_a05m-ap3a-eng
-lunch twrp_a05m-ap4a-eng
+#lunch twrp_a05m-ap4a-eng
 
 mka recoveryimage -j"$(nproc --all)"
 
