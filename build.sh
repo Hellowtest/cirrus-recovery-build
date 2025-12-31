@@ -17,21 +17,21 @@ curl -LSs https://raw.githubusercontent.com/akhilnarang/scripts/refs/heads/maste
 
 # Sync TWRP manifest
 log "Syncing TWRP Manifest..."
-git config --global user.name "nazephyrus"
-git config --global user.email "108184157+nazephyrus@users.noreply.github.com"
-repo init --depth=1 -u "$TWRP_MANIFEST" -b "$TWRP_MANIFEST_BRANCH"
+
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-14
 repo sync
 
 # Clone Device tree
 log "Cloning device tree..."
-git clone --depth=1 -q "$DT_REPO" -b "$DT_BRANCH" "$DT_PATH"
+git clone https://github.com/smiley9000/twrp_samsung_a05m_6.6 device/samsung/a05m
+git clone https://github.com/smiley9000/twrp_samsung_mt6768-common_6.6 device/samsung/mt6768-common
 
 # Build TWRP
 log "Building TWRP..."
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch "${DEVICE_MAKEFILE}-eng"
-mka "${BUILD_TARGET}image" -j"$(nproc --all)"
+lunch a05m-eng
+mka recoveryimage -j"$(nproc --all)"
 
 # Files
 OUT_PATH="out/target/product/$DEVICE_NAME"
