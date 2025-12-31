@@ -18,7 +18,14 @@ curl -LSs https://raw.githubusercontent.com/akhilnarang/scripts/refs/heads/maste
 # Sync TWRP manifest
 log "Syncing TWRP Manifest..."
 
+git config --global user.name "tt"
+git config --global user.email "ttt@users.noreply.github.com"
+
 repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-14
+
+git config --global user.name "tt"
+git config --global user.email "ttt@users.noreply.github.com"
+
 repo sync
 
 # Clone Device tree
