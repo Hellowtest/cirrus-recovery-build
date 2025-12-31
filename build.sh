@@ -37,7 +37,9 @@ git clone https://github.com/smiley9000/twrp_samsung_mt6768-common_6.6 device/sa
 log "Building TWRP..."
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch twrp_a05m-eng
+lunch twrp_a05m-ap3a-eng
+lunch twrp_a05m-ap4a-eng
+
 mka recoveryimage -j"$(nproc --all)"
 
 # Files
