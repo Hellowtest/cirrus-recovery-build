@@ -6,7 +6,7 @@ exec > >(tee $HOME/build.log) 2>&1 # Write logs
 source functions.sh # Import functions
 
 # Handle errors
-trap 'err "Failed to execute command $BASH_COMMAND"' ERR
+trap 'err "Failed to execute scommand $BASH_COMMAND"' ERR
 
 # Create workspace dir
 mkdir -p workspace && cd workspace
