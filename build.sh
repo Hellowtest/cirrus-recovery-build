@@ -21,7 +21,7 @@ log "Syncing TWRP Manifest..."
 git config --global user.name "tt"
 git config --global user.email "ttt@users.noreply.github.com"
 
-repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-14
+repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-14.1
 
 git config --global user.name "tt"
 git config --global user.email "ttt@users.noreply.github.com"
@@ -39,7 +39,6 @@ export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
 #lunch twrp_a05m-ap3a-eng
 lunch twrp_a05m-ap4a-eng
-lunch twrp_a05m-ap2a-eng
 lunch twrp_a05m-bp1a-eng
 
 
