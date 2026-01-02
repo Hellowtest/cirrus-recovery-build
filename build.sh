@@ -21,7 +21,7 @@ log "Syncing TWRP Manifest..."
 git config --global user.name "tt"
 git config --global user.email "ttt@users.noreply.github.com"
 
-repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-14.1
+repo init --depth=1 -u https://github.com/TWRP-Test/platform_manifest_twrp_aosp.git -b twrp-16.0
 
 git config --global user.name "tt"
 git config --global user.email "ttt@users.noreply.github.com"
