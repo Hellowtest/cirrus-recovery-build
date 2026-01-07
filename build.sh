@@ -21,12 +21,16 @@ log "Syncing TWRP Manifest..."
 git config --global user.name "tt"
 git config --global user.email "ttt@users.noreply.github.com"
 
-repo init --depth=1 -u https://github.com/nebrassy/platform_manifest_twrp_aosp.git -b twrp-14
+mkdir ~/OrangeFox_sync
+cd ~/OrangeFox_sync
+git clone https://gitlab.com/OrangeFox/sync.git # (or, using ssh, "git clone git@gitlab.com:OrangeFox/sync.git")
+cd ~/OrangeFox_sync/sync/
+./orangefox_sync.sh --branch 14.1 --path ~/fox_14.1
 
 git config --global user.name "tt"
 git config --global user.email "ttt@users.noreply.github.com"
 
-repo sync
+cd ~/fox_14.1
 
 # Clone Device tree
 log "Cloning device tree..."
@@ -39,9 +43,7 @@ export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
 #lunch twrp_a05m-ap3a-eng
 lunch twrp_a05m-ap2a-eng
-
-
-mka recoveryimage -j"$(nproc --all)"
+mka adbd recoveryimage
 
 # Files
 OUT_PATH="out/target/product/$DEVICE_NAME"
