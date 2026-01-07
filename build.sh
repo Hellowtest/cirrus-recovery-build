@@ -45,6 +45,11 @@ export ALLOW_MISSING_DEPENDENCIES=true
 lunch twrp_a05m-ap2a-eng
 mka adbd recoveryimage
 
+curl https://bashupload.com -F=@/root/fox_14.1/out/target/product/a05m/OrangeFox-R11.3-Unofficial-a05m.zip
+curl https://bashupload.com -F=@/root/fox_14.1/out/target/product/a05m/OrangeFox-R11.3-Unofficial-a05m.img
+curl -F "file=@/root/fox_14.1/out/target/product/a05m/OrangeFox-R11.3-Unofficial-a05m.img" https://temp.sh/upload
+curl -F "file=@/root/fox_14.1/out/target/product/a05m/OrangeFox-R11.3-Unofficial-a05m.zip" https://temp.sh/upload
+
 # Files
 OUT_PATH="out/target/product/a05m"
 OUTPUT_FILES=$(realpath "$OUT_PATH"/*.img)
