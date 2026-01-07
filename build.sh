@@ -46,7 +46,7 @@ lunch twrp_a05m-ap2a-eng
 mka adbd recoveryimage
 
 # Files
-OUT_PATH="out/target/product/$DEVICE_NAME"
+OUT_PATH="out/target/product/a05m"
 OUTPUT_FILES=$(realpath "$OUT_PATH"/*.img)
 
 # Create GitHub release
